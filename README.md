@@ -1,4 +1,4 @@
-Welcome to your new dbt project! это это
+Welcome to your new dbt project! welcome to the club body
 
 ### Using the starter project
 
