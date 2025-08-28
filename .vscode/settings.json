@@ -1,0 +1,4 @@
+{
+    "dbt.enableCollaboration": true,
+    "terminal.integrated.gpuAcceleration": "off"
+}
