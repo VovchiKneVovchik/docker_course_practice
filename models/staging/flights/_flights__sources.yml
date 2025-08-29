@@ -13,6 +13,9 @@ sources:
             description: Название модели самолета
           - name: "range"
             description: Неизвестное поле
+      - name: aircrafts_data
+        description: данные о самолетах
+
       - name: airports
         description: Аэропорты
         columns: 
@@ -26,6 +29,9 @@ sources:
             description: Координаты  
           - name: timezone
             description: Временная зона
+      - name: airports_data
+        description: данные об аэропортах
+
       - name: seats
         description: Места в самолетах
         columns:
@@ -49,4 +55,21 @@ sources:
             period: day
           filter: current_timestamp::date - book_date::date < 30000 # необязательно
         loaded_at_field: book_date::timestamp 
-        
+
+      - name: boarding_passes
+        description: посадочные талоны
+        columns: 
+          - name: ticket_no 
+          - name: flight_id
+          - name: boarding_no 
+          - name: eat_no
+      - name: flights
+        description: рейсы?
+      - name: flights_v
+        description: рейсы в?
+      - name: tickets
+        description: билеты
+      - name: ticket_flights
+        description: билеты на рейс?
+      - name: routes
+        description: маршруты
