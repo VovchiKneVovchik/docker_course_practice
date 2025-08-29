@@ -1,0 +1,37 @@
+models: 
+  - name: fct_bookings
+    description: факты бронирования
+    docs:
+      show: true # не/показывать в сгенерированной документации текущую модель 
+      node_color: red # цвет данной модели в доке
+    latest_version: 1 
+    versions:
+      #- v: 2
+      - v: 1
+    #access: # для межкомандой работы, режим доступа
+    #constraints: # проверка данных в моделе (если какая-то проверка не пройдет, то модель не обновится)
+    #tests: # проверка данных в моделе (модель обновится, но получим сообщение, что тест провален)
+    config:
+      contract: {enforced: true}
+    meta: # указание любых пар ключ-значение
+      owner: 'leevladimir2002@yandex.ru'
+      contact_tg: 'не скажу'
+      status: in_dev
+    
+    columns: 
+      - name: book_ref
+        data_type: bpchar(6)
+        constraints:
+          - type: not_null
+      - name: book_date
+        data_type: timestamptz
+      - name: total_amount
+        data_type: numeric(10, 2)
+        constraints:
+        - type: check
+          expression: 'total_amount > 0'
+        tests:
+          - not_null 
+        meta: 
+          owner: finance_team
+        quote: true # да/нет обромлять поля в кавычки
